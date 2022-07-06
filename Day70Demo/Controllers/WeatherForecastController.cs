@@ -20,7 +20,7 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet]
     [Route("GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
@@ -33,7 +33,7 @@ public class WeatherForecastController : ControllerBase
             .ToArray();
     }
 
-    [HttpGet(Name = "GetWeatherForecastForCity")]
+    [HttpGet]
     [Route("GetWeatherForecastForCity/{city}")]
     public WeatherForecast GetForCity(string city)
     {
