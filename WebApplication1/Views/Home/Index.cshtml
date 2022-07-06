@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<WebApplication1.Services.WeatherInfo>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +7,24 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h3>Token used</h3>
+<textarea class="w-100">@ViewBag.Token</textarea>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Date</th>
+        <th>Temperature (Celcius)</th>
+        <th>Temperature (Farenhight)</th>
+        <th>Summary</th>
+    </tr>
+    @foreach (var weatherInfo in Model)
+    {
+        <tr>
+            <td>@weatherInfo.Date</td>
+            <td>@weatherInfo.TemperatureC</td>
+            <td>@weatherInfo.TemperatureF</td>
+            <td>@weatherInfo.Summary</td>
+        </tr>
+    }
+</table>
